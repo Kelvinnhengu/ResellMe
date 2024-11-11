@@ -1,44 +1,60 @@
-import React from "react";
-import logo from "../assets/images/resellme-logo2.png";
-import icon from "../assets/images/tabler_window-maximize.png";
-import search from "../assets/images/akar-icons_search.png";
-import sun from "../assets/images/akar-icons_sun.png"
+import { NavLink } from "react-router-dom";
+import { useRef } from "react";
+import { Sling as Hamburger } from "hamburger-react";
+import logo2 from "../img/Navlogo.png";
+import logo from "../img/resellmeLogo.png";
+const NavBar = () => {
+  const navTitles = {
+    navTitle: "Docs",
+    navTitle2: "Blog",
+    navTitle3: "About Us",
+    navTitle4: "Support",
+    navTitle5: "Portal",
+    navTitle6: "Register",
+  };
+  const navRef = useRef();
 
-const Navbar = () => {
+  const showNavbar = () => {
+    navRef.current.classList.toggle("responsive_nav");
+  };
+
   return (
-    <div>
+    <>
       <header>
-        <nav role="navigation">
-          <div className="nav-child">
-            <img className="logo" src={logo} alt="" />
-            <a href="">Docs</a>
-            <a href="">Blogs</a>
-            <a href="">About Us</a>
-          </div>
-          <div className="nav-child">
-            <a href="">
-              Support <img src={icon} alt="" />
-            </a>
-            <a href="">
-              Portal
-              <img src={icon} alt="" />
-            </a>
-            <a href="">
-              Register
-              <img src={icon} alt="" />
-            </a>
-            <button className="sun"><img src={sun} alt="" /></button>
-            <button className="search"><img src={search} alt="" />search</button>
-            <button className="humburger-menu"></button>
-          </div>
+        <NavLink to="/" className="navbar-brand">
+          <img src={logo} alt="ReSellMe Logo" className="img-fluid" />
+        </NavLink>
+        <nav ref={navRef}>
+          <a href="/#">{navTitles.navTitle}</a>
+          <a href="/#">{navTitles.navTitle2}</a>
+          <a href="/#">{navTitles.navTitle3}</a>
+          <a href="/#">
+            {navTitles.navTitle4}{" "}
+            <img src={logo2} alt="" className="img-fluid" />
+          </a>
+          <a href="/#">
+            {navTitles.navTitle5}{" "}
+            <img src={logo2} alt="" className="img-fluid" />
+          </a>
+          <a href="/#">
+            {navTitles.navTitle6}{" "}
+            <img src={logo2} alt="" className="img-fluid" />
+          </a>
         </nav>
+        <div className="d-flex  ">
+          <p>Menu</p>
+          <button className=" btn" onClick={showNavbar}>
+            <Hamburger
+              direction="right"
+              color="#ffff"
+              easing="ease-in"
+              duration={0.7}
+            />
+          </button>
+        </div>
       </header>
-
-
-      
-    </div>
-   
+    </>
   );
 };
 
-export default Navbar;
+export default NavBar;

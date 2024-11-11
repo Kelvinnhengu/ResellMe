@@ -6,7 +6,7 @@ const Features = () => {
       <div className="row">
         <div className="col-12 col-md-6">
           <div className="text">
-            <h1>Resellme's Features</h1>
+            <h1>Resellme' Features</h1>
             <p>
               The Resell me platform has a wide range of features which makes it
               stand out from all competitors. Here we have just a few of those.
